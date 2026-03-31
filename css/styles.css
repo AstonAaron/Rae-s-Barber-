@@ -241,17 +241,26 @@ Author: [Aaron Aston] */
 
     /* -- features grid -- */
     
-    .features-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 18px;
+    .feature-grid {
+        display: flex;
+        grid-template-columns: 0;
+        gap: 24px;
+        width: max-content;
+        will-change: transform;
+        transition: transform 0.2s ease-out;
     }
 
     .feature-card {
+        flex: 0 0 320px;
         background-color: var(--color-beige);
         border-radius: var(--radius);
         padding: 14px;
         box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+        border: 1px solid rgba(58,45,40,0.12);
+    }
+
+     .features {
+        overflow: hidden;
     }
 
     .feature-img {
