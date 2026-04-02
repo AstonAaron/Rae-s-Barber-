@@ -400,7 +400,7 @@ body {
 }
 
 .service-modal-list {
-    padding left: 20px;
+    padding-left: 20px;
     display: grid;
     gap: 10px;    
 }
