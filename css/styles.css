@@ -340,7 +340,7 @@ body {
 }
  
 /* service Modal */
-.service.modal {
+.service-modal {
     position: fixed;
     inset: 0;
     display: none;

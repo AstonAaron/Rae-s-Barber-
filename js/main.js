@@ -26,11 +26,11 @@ const heroSubtext = document.getElementById("heroSubtext");
 
 // modal elements
 const serviceModal = document.getElementById("serviceModal");
-const serviceModalOverlay = document.getElementById("modalOverlay");
-const serviceModalClose = document.getElementById("modalClose");
-const serviceModalTitle = document.getElementById("modalServiceTitle");
-const serviceModalPrice = document.getElementById("modalServicePrice");
-const serviceModalList = document.getElementById("modalServiceList");
+const serviceModalOverlay = document.getElementById("serviceModalOverlay");
+const serviceModalClose = document.getElementById("serviceModalClose");
+const serviceModalTitle = document.getElementById("serviceModalTitle");
+const serviceModalPrice = document.getElementById("serviceModalPrice");
+const serviceModalList = document.getElementById("serviceModalList");
 
 // ----- Main Shop Object -----
 const shopInfo = {
@@ -278,7 +278,7 @@ const renderServices = () => {
      ${badgeHTML}
      <p>$${service.price}</p>
 
-     <div class="service-action">
+     <div class="service-actions">
      <button class="service-details-btn" type="button" data-service-id="${service.id}"
      >
      View Details
@@ -291,6 +291,22 @@ const renderServices = () => {
     .join("");
     featureGrid.innerHTML = servicesHTML;
 };
+
+featureGrid.addEventListener("click", (e) => {
+  const button = e.target.closest(".service-details-btn");
+  if (!button) return;
+
+  const serviceId = button.getAttribute("data-service-id");
+  openServiceModal({ id: serviceId });
+});
+
+if (serviceModalClose) {
+  serviceModalClose.addEventListener("click", closeServiceModal);
+}
+
+if (serviceModalOverlay) {
+  serviceModalOverlay.addEventListener("click", closeServiceModal);
+}
 
 const renderHours = () => {
   if (!hoursList) return;
